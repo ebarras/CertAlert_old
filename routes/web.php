@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/all-certs', function () {
+    return view('all-certs');
+});
