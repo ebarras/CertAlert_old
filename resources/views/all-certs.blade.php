@@ -1,5 +1,10 @@
 @extends('layouts.public')
 
+@section('page-specific-css')
+<!-- Page Specific CSS -->
+    <script src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>
+@endsection
+
 @section('content')
 <div class="container">
 
@@ -9,4 +14,9 @@
   </div>
 
 </div><!-- /.container -->
+@endsection
+
+@section('page-specific-js')
+<!-- Page Specific JS -->
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 @endsection
