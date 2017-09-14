@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('certs');
 });
 
-Route::get('/all-certs', function () {
-    return view('all-certs');
+Route::get('/certs-all', function () {
+    return view('certs-all');
 });
