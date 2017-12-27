@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{ $agreement->name }}</td>
                     <td>{{ $agreement->contacts_count }}</td>
-                    <td><button type="button" class="btn btn-secondary" style="line-height: .55">Edit</button></td>
+                    <td><button type="button" class="btn btn-secondary">Edit</button></td>
                 </tr>
                 @endforeach
             </tbody>

@@ -30,7 +30,7 @@
                     <td>{{ $cert->last_email or 'No Emails' }}</td>
                     <td>{{ $cert->incident or 'No Incident' }}</td>
                     <td>{{ $cert->agreement->name  }}</td>
-                    <td><button type="button" class="btn btn-secondary" style="line-height: .55">Send Mail</button></td>
+                    <td><button type="button" class="btn btn-secondary">Send Mail</button></td>
                 </tr>
                 @endforeach
             </tbody>
