@@ -42,13 +42,16 @@ Route::get('/test', function () {
     $cert->save();
     //Create a new contact
     $contact = new Contact;
-    $contact->email = "erik.barras@ocio.usda.gov";
+    $contact->email = "testroute@testroute.com";
     $contact->save();
     //Attach the contact to the agreement (populates agreement_contact)
     $contact->agreements()->attach($agreement);
     //Delete the contact as a test. Note how this deletes the associated agreement_contact because of the cascade. Remember to set mysql to innodb.
-    $contact = App\Contact::find(1);
+    $contact = Contact::where('email', 'testroute@testroute.com')->first();
     $contact->delete();
+    $cert->delete();
+    $agreement->delete();
 
-    return 'Test Complete';
+    return response('Test Complete', 200)
+                  ->header('Content-Type', 'text/plain');
 });
