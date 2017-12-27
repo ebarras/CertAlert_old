@@ -30,6 +30,7 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
+
           @if (Request::is('/'))
           <li class="nav-item active">
           @else
@@ -37,13 +38,23 @@
           @endif
             <a class="nav-link" href="{{ url('') }}">Home <span class="sr-only">(current)</span></a>
           </li>
+
+          @if (Request::is('agreements'))
+          <li class="nav-item active">
+          @else
+          <li class="nav-item">
+          @endif
+            <a class="nav-link" href="{{ url('agreements') }}">Agreements</a>
+          </li>
+
           @if (Request::is('certs-all'))
           <li class="nav-item active">
           @else
           <li class="nav-item">
           @endif
-            <a class="nav-link" href="{{ url('certs-all') }}">View All</a>
+            <a class="nav-link" href="{{ url('certs-all') }}">All Certs</a>
           </li>
+
         </ul>
       </div>
     </nav>
