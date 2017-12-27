@@ -22,7 +22,7 @@
                 <th>URL</th>
                 <th>Last Email</th>
                 <th>Incident #</th>
-                <th>Customer</th>
+                <th>Agreement</th>
                 <th>Options</th>
             </tr>
         </thead>
@@ -33,47 +33,22 @@
                 <th>URL</th>
                 <th>Last Email</th>
                 <th>Incident #</th>
-                <th>Customer</th>
+                <th>Agreement</th>
                 <th>Options</th>
             </tr>
         </tfoot> -->
         <tbody>
+            @foreach ($certs as $cert)
             <tr>
-                <td>7</td>
-                <td>2017-09-23</td>
-                <td>www.website.com</td>
-                <td>2017-09-09</td>
-                <td>INC000000344621</td>
-                <td>FSA0801</td>
+                <td>{{ \App\Http\Controllers\Helpers::DaysFromNow($cert->expiration_date) }}</td>
+                <td>{{ $cert->expiration_date }}</td>
+                <td>{{ $cert->url }}</td>
+                <td>{{ $cert->last_email or 'No Emails' }}</td>
+                <td>{{ $cert->incident or 'No Incident' }}</td>
+                <td>{{ $cert->agreement->name  }}</td>
                 <td><button type="button" class="btn btn-secondary" style="line-height: .55">Send Mail</button></td>
             </tr>
-            <tr>
-                <td>7</td>
-                <td>2017-09-23</td>
-                <td>www.google.com</td>
-                <td>2017-09-09</td>
-                <td>INC000000344621</td>
-                <td>FSA0801</td>
-                <td><button type="button" class="btn btn-secondary" style="line-height: .55">Send Mail</button></td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>2017-09-23</td>
-                <td>www.fbi.com</td>
-                <td>2017-09-09</td>
-                <td>INC000000344621</td>
-                <td>FSA0801</td>
-                <td><button type="button" class="btn btn-secondary" style="line-height: .55">Send Mail</button></td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>2017-09-23</td>
-                <td>www.randomwebsiteijustmade.net</td>
-                <td>2017-09-09</td>
-                <td>INC000000344621</td>
-                <td>FSA0801</td>
-                <td><button type="button" class="btn btn-secondary" style="line-height: .55">Send Mail</button></td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
   </div>

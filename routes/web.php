@@ -17,7 +17,8 @@ use App\Contact;
 
 
 Route::get('/', function () {
-    return view('certs');
+    $certs = Cert::with('agreement')->get();
+    return view('certs')->with('certs', $certs);
 });
 
 Route::get('/certs-all', function () {
