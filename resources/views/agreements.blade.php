@@ -6,34 +6,29 @@
 @endsection
 
 @section('content')
-<div class="container">
-
-  <!-- <div class="starter-template">
-    <h1>Certs Ordered By Need</h1>
-    <p class="lead">Certs that need action here. Blank if no action needed?</p>
-  </div> -->
-
-  <div class="table">
-    <table id="home-agreements-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>Agreement</th>
-                <th># of Contact Emails</th>
-                <th>Options</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($agreements as $agreement)
-            <tr>
-                <td>{{ $agreement->name }}</td>
-                <td>{{ $agreement->contacts_count }}</td>
-                <td><button type="button" class="btn btn-secondary" style="line-height: .55">Edit</button></td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-  </div>
-
+<div class="container-fluid">
+    <div class="row">
+      <div class="table">
+        <table id="home-agreements-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Agreement</th>
+                    <th># of Contact Emails</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($agreements as $agreement)
+                <tr>
+                    <td>{{ $agreement->name }}</td>
+                    <td>{{ $agreement->contacts_count }}</td>
+                    <td><button type="button" class="btn btn-secondary" style="line-height: .55">Edit</button></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+      </div>
+    </div>
 </div><!-- /.container -->
 @endsection
 

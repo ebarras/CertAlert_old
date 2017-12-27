@@ -6,13 +6,13 @@
 @endsection
 
 @section('content')
-<div class="container">
-
-  <div class="starter-template">
-    <h1>All Certs</h1>
-    <p class="lead">This is the same table as the main page, but with all certs (from all time?)</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="starter-template">
+      <h1>All Certs</h1>
+      <p class="lead">This is the same table as the main page, but with all certs (from all time?)</p>
+    </div>
   </div>
-
 </div><!-- /.container -->
 @endsection
 
