@@ -13,3 +13,8 @@ body p {
 tr .btn {
   line-height: .55;
 }
+
+.row-header-buttons{
+  padding-right: 15px;
+  padding-bottom: 20px;
+}
