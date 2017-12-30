@@ -21,10 +21,8 @@ Route::get('/', function () {
     return view('certs')->with('certs', $certs);
 });
 
-Route::get('/agreements', function () {
-    $agreements = Agreement::withCount('contacts')->get();
-    return view('agreements')->with('agreements', $agreements);
-});
+Route::post('/agreement', 'AgreementController@store');
+Route::get('/agreements', 'AgreementController@index');
 
 Route::get('/certs-all', function () {
     return view('certs-all');

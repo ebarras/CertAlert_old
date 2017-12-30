@@ -8,6 +8,15 @@
 
 @section('content')
 <div class="container-fluid">
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
     <div class="row row-header-buttons justify-content-end">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Agreement</button>
         <!-- Modal -->
@@ -55,7 +64,10 @@
                 <tr>
                     <td>{{ $agreement->name }}</td>
                     <td>{{ $agreement->contacts_count }}</td>
-                    <td><button type="button" class="btn btn-secondary">Edit</button></td>
+                    <td>
+                      <button type="button" class="btn btn-secondary">Edit</button>
+                      <a href="#"><button type="button" class="btn btn-secondary">Delete</button></a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
