@@ -18,3 +18,11 @@ tr .btn {
   padding-right: 15px;
   padding-bottom: 20px;
 }
+
+.alert {
+  padding-bottom: 0px;
+}
+
+td form {
+  display: inline;
+}

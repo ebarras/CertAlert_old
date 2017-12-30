@@ -39,12 +39,12 @@
             <a class="nav-link" href="{{ url('') }}">Home <span class="sr-only">(current)</span></a>
           </li>
 
-          @if (Request::is('agreements'))
+          @if (Request::is('agreement'))
           <li class="nav-item active">
           @else
           <li class="nav-item">
           @endif
-            <a class="nav-link" href="{{ url('agreements') }}">Agreements</a>
+            <a class="nav-link" href="{{ route('agreement.index') }}">Agreements</a>
           </li>
 
           @if (Request::is('certs-all'))

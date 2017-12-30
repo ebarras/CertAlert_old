@@ -21,8 +21,7 @@ Route::get('/', function () {
     return view('certs')->with('certs', $certs);
 });
 
-Route::post('/agreement', 'AgreementController@store');
-Route::get('/agreements', 'AgreementController@index');
+Route::resource('agreement','AgreementController');
 
 Route::get('/certs-all', function () {
     return view('certs-all');

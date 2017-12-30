@@ -15,7 +15,7 @@ class AgreementController extends Controller
      */
     public function index()
     {
-        $agreements = Agreement::withCount('contacts')->get();
+        $agreements = Agreement::withCount('contacts')->withCount('certs')->get();
         return view('agreements')->with('agreements', $agreements);
     }
 
@@ -43,7 +43,8 @@ class AgreementController extends Controller
         $agreement = new Agreement;
         $agreement->name = $request->agreement;
         $agreement->save();
-        return redirect('agreements');
+        return redirect()->route('agreement.index')
+                        ->with('success','Agreement created successfully');
     }
 
     /**
@@ -87,7 +88,14 @@ class AgreementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {  
+        $agreement = Agreement::withCount('certs')->findOrFail($id); 
+        if ($agreement->certs_count != 0) {
+        return redirect()->route('agreement.index')
+                        ->with('error',"You can't delete an agreement that still has certs.");
+        };
+        $agreement->delete();
+        return redirect()->route('agreement.index')
+                        ->with('success','Agreement deleted successfully');
     }
 }

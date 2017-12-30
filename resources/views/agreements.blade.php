@@ -8,6 +8,16 @@
 
 @section('content')
 <div class="container-fluid">
+  @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+      <p>{{ $message }}</p>
+    </div>
+  @endif
+  @if ($message = Session::get('error'))
+    <div class="alert alert-danger">
+      <p>{{ $message }}</p>
+    </div>
+  @endif
   @if ($errors->any())
     <div class="alert alert-danger">
       <ul>
@@ -30,7 +40,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form role="form" method="POST" action="{{ url('agreement') }}">
+                <form role="form" method="POST" action="{{ route('agreement.store') }}">
                   {{ csrf_field() }}
                   <div class="form-group">
                     <label class="control-label">Agreement</label>
@@ -55,7 +65,8 @@
             <thead>
                 <tr>
                     <th>Agreement</th>
-                    <th># of Contact Emails</th>
+                    <th>Related Contact Emails</th>
+                    <th>Related Certs</th>
                     <th>Options</th>
                 </tr>
             </thead>
@@ -64,9 +75,13 @@
                 <tr>
                     <td>{{ $agreement->name }}</td>
                     <td>{{ $agreement->contacts_count }}</td>
+                    <td>{{ $agreement->certs_count }}</td>
                     <td>
                       <button type="button" class="btn btn-secondary">Edit</button>
-                      <a href="#"><button type="button" class="btn btn-secondary">Delete</button></a>
+                      {!! Form::open(['method' => 'DELETE','route' => ['agreement.destroy', $agreement->id]]) !!}
+                      {{ csrf_field() }}
+                      {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                      {!! Form::close() !!}
                     </td>
                 </tr>
                 @endforeach
