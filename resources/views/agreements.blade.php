@@ -99,6 +99,7 @@
     <script>
       $(document).ready(function() {
           $('#home-agreements-table').DataTable();
-        } );
+          $('.alert').delay(2700).fadeOut("slow");
+      });
     </script>
 @endsection
